@@ -1,39 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import { get, isObject, isArray } from 'lodash';
+import React from 'react';
+import { isArray } from 'lodash';
 import { Button, Row, Col, Card } from 'react-bootstrap';
 
-import actions from '../actions';
-
-function list({ details, error, handleViewTransaction }) {
-  /* const [blockHash, setBlockHash] = useState(propBlockHash);
-
-  useEffect(() => {
-    if (propBlockHash && blockHash !== propBlockHash) {
-      handleChangeHash(propBlockHash);
-    }
-  }, [propBlockHash]);
-
-  const handleChangeHash = (e) => {
-    let value = '';
-    if (e && get(e, 'target.value', '')) {
-      value = get(e, 'target.value', '');
-    } else if (!isObject(e)) {
-      value = e;
-    }
-    setBlockHash(value);
-  }; */
-
-  /* const handleSearch = (e) => {
-    if (blockHash) {
-      console.log('==========handleSearch', blockHash);
-      getTransaction(blockHash);
-    } else {
-      alert('Please enter Block hash value');
-    }
-  }; */
-
-  //format transactions of single block
+function list({ details, handleViewTransaction }) {
   let transactions = [];
   if (details && details.tx && isArray(details.tx)) {
     details.tx.forEach((transaction) => {
@@ -78,14 +47,4 @@ function list({ details, error, handleViewTransaction }) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    details: state.block.details
-  };
-};
-
-const mapDispatchToProps = {
-  getTransaction: actions.getTransaction
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(list);
+export default list;

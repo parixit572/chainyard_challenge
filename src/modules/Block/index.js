@@ -48,16 +48,6 @@ function Block({ details, error, getLatestBlock, getBlock }) {
     getLatestBlock();
   };
 
-  //format transactions of single block
-  let transactions = [];
-  if (details && details.tx && isArray(details.tx)) {
-    details.tx.forEach((transaction) => {
-      transactions.push({
-        index: transaction.tx_index
-      });
-    });
-  }
-
   return (
     <div className="block-wrapper">
       <Form>
@@ -82,7 +72,12 @@ function Block({ details, error, getLatestBlock, getBlock }) {
           </Col>
         </Row>
 
-        <TransactionList handleViewTransaction={handleViewTransaction} />
+        {details && (
+          <TransactionList
+            handleViewTransaction={handleViewTransaction}
+            details={details}
+          />
+        )}
       </Form>
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { get, isObject, isArray, has } from 'lodash';
-import { Button, Row, Col, Card, CardDeck } from 'react-bootstrap';
+import { get } from 'lodash';
+import { Button, Row, Col, Card } from 'react-bootstrap';
 
 import actions from '../actions';
 

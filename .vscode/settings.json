@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "prettier.singleQuote": true,
+    "prettier.jsxBracketSameLine": true,
+    "workbench.colorTheme": "Default Dark+",
+    "javascript.format.semicolons": "insert",
+    "prettier.semi": true
+}

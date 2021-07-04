@@ -1,0 +1,11 @@
+const type = 'BLOCK/';
+
+export default {
+  GET_REQUEST: `${type}GET_REQUEST`,
+  GET_SUCCESS: `${type}GET_SUCCESS`,
+  GET_FAILURE: `${type}GET_FAILURE`,
+
+  GET_LATEST_REQUEST: `${type}GET_LATEST_REQUEST`,
+  GET_LATEST_SUCCESS: `${type}GET_LATEST_SUCCESS`,
+  GET_LATEST_FAILURE: `${type}GET_LATEST_FAILURE`
+};

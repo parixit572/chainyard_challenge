@@ -1,0 +1,20 @@
+.loading-wrapper {
+  display: none;
+
+  &.loading {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    background: #c0fff1b0;
+
+    img.page-loading-image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+  }
+}

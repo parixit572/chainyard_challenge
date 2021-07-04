@@ -37,7 +37,6 @@ function Block({ details, error, getLatestBlock, getBlock }) {
 
   const handleSearch = (e) => {
     if (blockHash) {
-      console.log('==========handleSearch', blockHash);
       getBlock(blockHash);
     } else {
       alert('Please enter Block hash value');
@@ -45,7 +44,8 @@ function Block({ details, error, getLatestBlock, getBlock }) {
   };
 
   const getLatest = (e) => {
-    console.log('==========', e);
+    setBlockHash('');
+    getLatestBlock();
   };
 
   //format transactions of single block

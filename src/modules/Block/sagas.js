@@ -6,13 +6,12 @@ import apiURLs from '../../config/url-config';
 import types from './types';
 import actions from './actions';
 
-function* getLatestBlock(action) {
+function* getLatestBlock() {
   try {
-    console.log('========getLatestBlock', action);
-    const resp = yield call(callAPI, apiURLs.blockUrl.getLatest);
+    const resp = yield call(callAPI, apiURLs.blockUrl.getLatest, '?cors=true');
 
-    if (resp.status === true) {
-      yield put(actions.getLatestBlockSuccess({ resp }));
+    if (!resp.error && !resp.message && resp.hash) {
+      yield put(actions.getBlock(resp.hash));
     } else {
       yield put(actions.getLatestBlockFailure('Error'));
     }

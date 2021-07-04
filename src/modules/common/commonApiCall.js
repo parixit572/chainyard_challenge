@@ -26,6 +26,7 @@ export function* callAPI(apiURL, reqData = '', requestMethod = 'GET') {
       if (!withMock) {
         finalAPIUrl += reqData;
       }
+
       data = yield call(fetch, finalAPIUrl);
     } else {
       const requestOptions = {
@@ -49,8 +50,11 @@ export function* callAPI(apiURL, reqData = '', requestMethod = 'GET') {
 
 export const getRequestHeaders = () => {
   let headers = {
-    //"Content-Type": "application/json",
-    //"Content-Type": 'multipart/form-data',
+    // 'Content-Type': 'application/json',
+    'sec-fetch-site': 'cross-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'Access-Control-Allow-Origin': '*'
   };
 
   return headers;

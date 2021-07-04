@@ -3,7 +3,9 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import { logger } from 'redux-logger';
 import { createMemoryHistory } from 'history';
-import rootReducer from './modules';
+
+import rootReducer from './reducer';
+import rootSaga from './sagas';
 
 export const history = createMemoryHistory();
 
@@ -23,6 +25,12 @@ if (process.env.NODE_ENV === 'development') {
 
 const composedEnhancers = compose(applyMiddleware(...middleware), ...enhancers);
 
-const store = createStore(connectRouter(history)(rootReducer), initialState, composedEnhancers);
+const store = createStore(
+  connectRouter(history)(rootReducer),
+  initialState,
+  composedEnhancers
+);
 
 export default store;
+
+sagaMiddleware.run(rootSaga);
